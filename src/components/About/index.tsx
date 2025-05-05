@@ -1,5 +1,11 @@
 import React from "react";
-import { AboutSection, SectionTitle, AboutContent, AboutText } from "./styles";
+import {
+  AboutSection,
+  SectionTitle,
+  AboutContent,
+  AboutText,
+  ResumeButton,
+} from "./styles";
 
 const About: React.FC = () => {
   return (
@@ -33,6 +39,29 @@ const About: React.FC = () => {
               capacidade para conduzir todo o ciclo de desenvolvimento, desde o
               levantamento de requisitos até o deploy das aplicações.
             </p>
+
+            <ResumeButton
+              href="/curriculo-gabriel-nogueira.pdf"
+              download="Curriculo_Gabriel_Nogueira.pdf"
+              target="_blank"
+            >
+              <span>Download Currículo</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </ResumeButton>
           </AboutText>
         </AboutContent>
       </div>
