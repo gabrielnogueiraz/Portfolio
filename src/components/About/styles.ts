@@ -51,3 +51,42 @@ export const AboutText = styled.div`
     transition: var(--transition);
   }
 `;
+
+export const ResumeButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 119, 255, 0.2);
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 119, 255, 0.3);
+    opacity: 1;
+  }
+  
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(0, 119, 255, 0.2);
+  }
+  
+  svg {
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover svg {
+    transform: translateY(2px);
+  }
+  
+  @media (max-width: 576px) {
+    width: 100%;
+    justify-content: center;
+  }
+`;
