@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const AboutSection = styled.section`
   padding: 100px 0;
+  background-color: ${props => props.theme.background};
+  transition: var(--transition);
 `;
 
 export const SectionTitle = styled.h2`
@@ -10,6 +12,8 @@ export const SectionTitle = styled.h2`
   margin-bottom: 40px;
   position: relative;
   display: inline-block;
+  color: ${props => props.theme.text};
+  transition: var(--transition);
 
   &::after {
     content: "";
@@ -27,42 +31,23 @@ export const SectionTitle = styled.h2`
 `;
 
 export const AboutContent = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-
-  @media (max-width: 992px) {
-    grid-template-columns: 1fr;
-  }
+  max-width: 800px;
+  margin: 0 auto;
 `;
 
 export const AboutText = styled.div`
   h3 {
     font-size: 24px;
     margin-bottom: 20px;
+    color: ${props => props.theme.text};
+    transition: var(--transition);
   }
 
   p {
-    margin-bottom: 15px;
-    color: var(--light-text);
-  }
-`;
-
-export const AboutImage = styled.div`
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  @media (max-width: 992px) {
-    order: -1;
-    max-width: 500px;
-    margin: 0 auto;
+    margin-bottom: 20px;
+    color: ${props => props.theme.lightText};
+    font-size: 16px;
+    line-height: 1.8;
+    transition: var(--transition);
   }
 `;
