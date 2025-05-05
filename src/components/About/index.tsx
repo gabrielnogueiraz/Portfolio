@@ -1,5 +1,5 @@
-import React from 'react';
-import { AboutSection, SectionTitle, AboutContent, AboutText, AboutImage } from './styles';
+import React from "react";
+import { AboutSection, SectionTitle, AboutContent, AboutText } from "./styles";
 
 const About: React.FC = () => {
   return (
@@ -10,9 +10,16 @@ const About: React.FC = () => {
           <AboutText>
             <h3>Desenvolvedor FullStack com foco em resultado e performance</h3>
             <p>
-              Olá! Sou Gabriel Nogueira, Desenvolvedor FullStack com experiência
-              prática em React, TypeScript, Node e PostgreSQL, atuando no
-              desenvolvimento de software na Indica Assessoria Empresarial.
+              Sou desenvolvedor fullstack com experiência sólida em criação de
+              sistemas internos e ferramentas web que impactam diretamente a
+              produtividade de equipes. Tenho domínio em Node.js, TypeScript,
+              React e PostgreSQL, atuando desde a concepção da ideia até o
+              deploy completo em produção. Atualmente desenvolvo soluções para a
+              Indica Assessoria Empresarial, onde lidero projetos que
+              automatizam e modernizam processos antes totalmente manuais. Busco
+              oportunidades para aplicar meu conhecimento técnico em ambientes
+              desafiadores, com foco em performance, confiabilidade e entrega
+              real de valor.
             </p>
             <p>
               Atualmente estou cursando Análise e Desenvolvimento de Sistemas e
@@ -27,9 +34,6 @@ const About: React.FC = () => {
               levantamento de requisitos até o deploy das aplicações.
             </p>
           </AboutText>
-          <AboutImage>
-            <img src="/api/placeholder/500/500" alt="Gabriel Nogueira" />
-          </AboutImage>
         </AboutContent>
       </div>
     </AboutSection>
