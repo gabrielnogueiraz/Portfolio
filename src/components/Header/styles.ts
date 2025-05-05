@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   padding: 40px 0;
   position: relative;
+  background-color: ${props => props.theme.header};
+  transition: var(--transition);
 `;
 
 export const HeaderContent = styled.div`
@@ -15,7 +17,8 @@ export const Logo = styled.div`
   a {
     font-size: 24px;
     font-weight: 700;
-    color: var(--dark-color);
+    color: ${props => props.theme.text};
+    transition: var(--transition);
   }
 `;
 
@@ -28,9 +31,10 @@ export const NavLinks = styled.nav<NavLinksProps>`
   gap: 30px;
 
   a {
-    color: var(--text-color);
+    color: ${props => props.theme.text};
     font-weight: 500;
     position: relative;
+    transition: var(--transition);
 
     &::after {
       content: "";
@@ -55,20 +59,18 @@ export const NavLinks = styled.nav<NavLinksProps>`
     top: 100%;
     left: 0;
     right: 0;
-    background-color: white;
+    background-color: ${props => props.theme.card};
     padding: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: ${props => props.theme.shadow};
     z-index: 10;
-
-    .dark-mode & {
-      background-color: var(--dark-color);
-    }
   }
 `;
 
 export const MobileMenu = styled.div`
   display: none;
   cursor: pointer;
+  color: ${props => props.theme.text};
+  transition: var(--transition);
 
   @media (max-width: 768px) {
     display: block;
