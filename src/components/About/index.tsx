@@ -41,7 +41,7 @@ const About: React.FC = () => {
             </p>
 
             <ResumeButton
-              href="/curriculo-gabriel-nogueira.pdf"
+              href="/Curriculo_pdf.pdf"
               download="Curriculo_Gabriel_Nogueira.pdf"
               target="_blank"
             >
