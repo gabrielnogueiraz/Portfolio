@@ -21,15 +21,24 @@ interface ExperienceItem {
 const experienceData: ExperienceItem[] = [
   {
     id: 1,
-    position: "Desenvolvedor de Software",
+    position: "Desenvolvedor FullStack Júnior",
     company: "Indica Assessoria Empresarial",
-    period: "Dezembro 2024 - Atual",
+    period: "Maio 2025 - Atual",
+    description:
+      "Fui promovido a Desenvolvedor Fullstack Júnior na Indica após um estágio de destaque, no qual liderei projetos como o Painel Forms e o Painel de Certificados. Hoje, atuo no desenvolvimento e manutenção de sistemas internos, usando tecnologias como Node.js, TypeORM, React.js e TypeScript, além de colaborar no planejamento técnico e na melhoria de processos da empresa.",
+    side: "right",
+  },
+  {
+    id: 2,
+    position: "Desenvolvedor de Software - Estagiário",
+    company: "Indica Assessoria Empresarial",
+    period: "Dezembro 2024 - Maio 2025",
     description:
       "Desenvolvimento de soluções internas para automação e monitoramento de processos contábeis. Criação e manutenção de sistemas completos, incluindo o Painel Forms Indica e o Painel de Certificados. Implementação de integrações com APIs usando Node.js, React.js, TypeScript, SQLite e PostgreSQL.",
     side: "left",
   },
   {
-    id: 2,
+    id: 3,
     position: "Analista de Suporte de TI",
     company: "Grupo Cercred",
     period: "Julho 2024 - Dezembro 2024",
@@ -38,7 +47,7 @@ const experienceData: ExperienceItem[] = [
     side: "right",
   },
   {
-    id: 3,
+    id: 4,
     position: "Analista de Contratos",
     company: "Grupo Cercred",
     period: "Março 2024 - Julho 2024",
