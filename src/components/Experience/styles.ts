@@ -1,5 +1,5 @@
 // src/components/Experience/styles.ts
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ExperienceSection = styled.section`
   padding: 100px 0;
