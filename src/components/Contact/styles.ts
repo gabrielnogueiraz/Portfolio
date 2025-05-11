@@ -148,3 +148,18 @@ export const Button = styled.button`
     transform: none;
   }
 `;
+
+
+// ...existing code...
+
+// Adicione ao final do arquivo
+export const FormStatus = styled.div<{ isError: boolean }>`
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  text-align: center;
+  background-color: ${(props) => (props.isError ? "#ffebee" : "#e8f5e9")};
+  color: ${(props) => (props.isError ? "#c62828" : "#2e7d32")};
+  border: 1px solid ${(props) => (props.isError ? "#ef9a9a" : "#a5d6a7")};
+  font-weight: 500;
+`;
