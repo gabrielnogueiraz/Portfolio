@@ -1,5 +1,6 @@
 // src/components/Contact/index.tsx
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import {
   ContactSection,
   SectionTitle,
@@ -11,38 +12,72 @@ import {
   ContactForm,
   FormGroup,
   FormControl,
-  Button
-} from './styles';
+  Button,
+  FormStatus,
+} from "./styles";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{
+    message: string;
+    isError: boolean;
+  } | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setStatus(null);
 
-    // Simulação de envio do formulário
-    setTimeout(() => {
-      alert('Mensagem enviada com sucesso! Em breve entrarei em contato.');
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+    // Substitua estes valores pelos IDs obtidos no EmailJS
+    const serviceId = "service_b3n27bj";
+    const templateId = "template_czy8aia";
+    const publicKey = "0LEecnHjaEbktfjes";
+
+    // Enviar o email usando EmailJS
+    emailjs
+      .sendForm(serviceId, templateId, e.target as HTMLFormElement, publicKey)
+      .then((response) => {
+        console.log(
+          "E-mail enviado com sucesso!",
+          response.status,
+          response.text
+        );
+        setStatus({
+          message: "Mensagem enviada com sucesso! Obrigado pelo contato.",
+          isError: false,
+        });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      })
+      .catch((err) => {
+        console.error("Erro ao enviar e-mail:", err);
+        setStatus({
+          message:
+            "Erro ao enviar mensagem. Por favor, tente novamente ou envie diretamente para meu e-mail.",
+          isError: true,
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
-      setIsSubmitting(false);
-    }, 1500);
   };
 
   return (
@@ -134,7 +169,10 @@ const Contact: React.FC = () => {
               </ContactItem>
             </ContactDetails>
           </ContactInfo>
-          <ContactForm onSubmit={handleSubmit}>
+          <ContactForm ref={formRef} onSubmit={handleSubmit}>
+            {status && (
+              <FormStatus isError={status.isError}>{status.message}</FormStatus>
+            )}
             <FormGroup>
               <FormControl
                 type="text"
@@ -175,7 +213,7 @@ const Contact: React.FC = () => {
               />
             </FormGroup>
             <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+              {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
             </Button>
           </ContactForm>
         </ContactContent>
